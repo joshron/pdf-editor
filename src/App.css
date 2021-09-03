@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+#pdf-file-input {
+  width: 0;
+}
+
+#file-input-label {
+  color: #ffffff;
+  background: #000000;
+  padding: 1rem;
+}
+
+#file-input-label:hover {
+  cursor: pointer;
+  color: #ffff00;
+}
