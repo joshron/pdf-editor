@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+/*Hide default input visually and control via the label*/
 #pdf-file-input {
   width: 0;
 }

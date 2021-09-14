@@ -1,21 +1,23 @@
 import './App.css';
 import './components/FileInput'
 import FileInput from "./components/FileInput";
-import {useState} from "react";
+import PageCanvasContainer from "./components/PageCanvasContainer";
+import {useState, useEffect} from "react";
+import * as pdfjsLib from 'pdfjs-dist/build/pdf';
 
 function App() {
-    const [inputVisible, setInputVisible] = useState(true);
+    //Stores file from file input
+    const [pdfFile, setPdfFile] = useState(null);
+    //True if file is of mime type application/pdf
+    const [pdfHasAttached, setPdfHasAttached] = useState(false);
 
-    function toggleInputVisibility(){
-        inputVisible ? setInputVisible(false) : setInputVisible(true);
-    }
     return (
         <div className="App">
-            <button onClick={() => toggleInputVisibility()}>Show/Hide</button>
             <header>
                 <h1>PDF</h1>
             </header>
-            {inputVisible ? <FileInput /> : null}
+            {pdfFile !== null && pdfHasAttached ? <p>{pdfFile.name}</p> : <p>Attach a file</p>}
+            <FileInput setPdfFile={setPdfFile} setPdfHasAttached={setPdfHasAttached}/>
         </div>
     );
 }
